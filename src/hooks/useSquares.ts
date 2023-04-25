@@ -1,6 +1,6 @@
 import { Ref, ref } from 'vue'
 
-type Square = {
+export type Square = {
   rank: number
   file: number
   displayValue: string
@@ -26,10 +26,10 @@ const generateSquares = () => {
   }).reverse()
 }
 
-const squares = ref(generateSquares())
-const moves: Ref<Square[]> = ref([])
-
 export const useSquares = () => {
+  const squares = ref(generateSquares())
+  const moves: Ref<Square[]> = ref([])
+
   const selectSquare = (square: Square) => {
     if (!square.selected) {
       square.selected = true

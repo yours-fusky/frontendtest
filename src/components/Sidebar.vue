@@ -9,9 +9,11 @@
 </template>
 
 <script setup lang="ts">
-import { useSquares } from '@/hooks/useSquares.ts'
+import type { Square } from '@/hooks/useSquares.ts'
 
-const { moves } = useSquares()
+defineProps<{
+  moves: Square[]
+}>()
 </script>
 
 <style scoped>

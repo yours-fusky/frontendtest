@@ -1,13 +1,19 @@
 <template>
   <div class="layout">
-    <Main />
-    <Sidebar />
+    <Main>
+      <Chessboard :squares="squares" @on-select="selectSquare" />
+    </Main>
+    <Sidebar :moves="moves" />
   </div>
 </template>
 
 <script setup lang="ts">
+import Chessboard from '@/components/Chessboard.vue'
 import Main from './components/Main.vue'
 import Sidebar from './components/Sidebar.vue'
+import { useSquares } from './hooks/useSquares'
+
+const { squares, selectSquare, moves } = useSquares()
 </script>
 
 <style scoped>

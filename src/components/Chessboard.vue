@@ -4,16 +4,19 @@
       <div
         v-for="square in rank"
         :class="['square', square.selected ? 'selected' : '']"
-        @click.prevent="() => selectSquare(square)"
+        @click="() => $emit('onSelect', square)"
       ></div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useSquares } from '@/hooks/useSquares.ts'
+import type { Square } from '@/hooks/useSquares.ts'
 
-const { squares, selectSquare } = useSquares()
+defineProps<{
+  squares: Square[][]
+}>()
+defineEmits(['onSelect'])
 </script>
 
 <style scoped>

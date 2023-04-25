@@ -1,12 +1,10 @@
 <template>
   <div class="main">
-    <Chessboard />
+    <slot></slot>
   </div>
 </template>
 
-<script setup lang="ts">
-import Chessboard from '@/components/Chessboard.vue'
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .main {
